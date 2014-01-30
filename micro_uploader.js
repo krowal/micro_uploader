@@ -1,5 +1,7 @@
 /*
  * Author: Łukasz Kowalski, http://www.devbricks.com
+ * DOCS: https://github.com/krowal/micro_uploader/blob/master/micro_uploader.js
+ * DEMO: http://devbricks.com/labs/micro_uploader/
  * requires: jQuery
  */
 
