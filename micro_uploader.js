@@ -35,7 +35,7 @@
 			}, settings);
 			
 			var T = this;
-			var _files = [];
+			var _files = {};
 			var nextId = 0;
 			var xhrs = {};
 			var uploader = new (function(){
@@ -44,9 +44,12 @@
 						xhrs[index].abort();
 						delete xhrs[index];
 					}
+					if(typeof(_files[index]) != 'undefined'){
+						delete _files[index];
+					}
 				}
 				this.startUpload = function(){
-					for(var i=0; i<_files.length; i++){
+					for(var i in _files){
 						(function(file){
 							var form = new FormData();
 							form.append('file', file);
@@ -74,7 +77,7 @@
 							xhrs[file.id] = xhr;
 						})(_files[i]);
 					}
-					_files = [];
+					_files = {};
 				}
 				this.autoStart = function(){
 					this.startUpload();
@@ -85,7 +88,7 @@
 				var new_tmp = [];
 				for(var i=0; i<files.length; i++){
 					files[i].id = nextId++;
-					_files.push(files[i]);
+					_files[files[i].id] = files[i];
 					new_tmp.push(files[i]);
 				}
 				settings.fileSelected(new_tmp);
