@@ -46,6 +46,7 @@
 					}
 					if(typeof(_files[index]) != 'undefined'){
 						delete _files[index];
+						
 					}
 				}
 				this.startUpload = function(){
