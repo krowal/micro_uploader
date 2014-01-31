@@ -74,9 +74,7 @@
 							xhrs[file.id] = xhr;
 						})(_files[i]);
 					}
-					console.log(_files)
 					_files = [];
-					console.log(_files)
 				}
 				this.autoStart = function(){
 					this.startUpload();
